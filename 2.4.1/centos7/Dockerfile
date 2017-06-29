@@ -32,7 +32,7 @@ yum clean all && \
 popd && \
 pushd ${INSTALL_DIR} && \
 PATH=${PATH}:${INSTALL_DIR}/bin gem update --system && \
-popd &&
+popd && \
 rm -rf ${TEMP_DIR_ROOT}
 
 ENV RUBY_HOME ${INSTALL_DIR}
