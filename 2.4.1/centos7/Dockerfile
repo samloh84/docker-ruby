@@ -14,7 +14,7 @@ ARG RUBY_SRC_TARGZ_SHA256SUM=a330e10d5cb5e53b3a0078326c5731888bb55e32c4abfeb27d9
 USER ${ROOT_UID}
 
 RUN \
-RUBY_COMPILE_DEPENDENCIES="gcc-c++ make zlib-devel gdbm-devel openssl-devel readline-devel" && \
+RUBY_COMPILE_DEPENDENCIES="gcc gcc-c++ make zlib-devel gdbm-devel openssl-devel readline-devel" && \
 yum-install ${RUBY_COMPILE_DEPENDENCIES} && \
 mkdir -p ${TEMP_DIR} ${INSTALL_DIR} && \
 pushd ${TEMP_DIR} && \
