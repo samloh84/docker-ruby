@@ -25,13 +25,13 @@ tar -xf ${RUBY_SRC_TARGZ} --strip-components=1 -C ${TEMP_DIR} && \
 ./configure --prefix=${INSTALL_DIR} && \
 make && \
 make install && \
+pushd ${INSTALL_DIR} && \
+PATH=${PATH}:${INSTALL_DIR}/bin gem update --system && \
+popd && \
 fix-ownership ${INSTALL_DIR} && \
 fix-permissions ${INSTALL_DIR} && \
 yum remove -y ${RUBY_COMPILE_DEPENDENCIES} && \
 yum clean all && \
-popd && \
-pushd ${INSTALL_DIR} && \
-PATH=${PATH}:${INSTALL_DIR}/bin gem update --system && \
 popd && \
 rm -rf ${TEMP_DIR_ROOT}
 
